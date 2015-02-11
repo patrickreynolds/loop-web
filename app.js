@@ -19,6 +19,9 @@ app.use(bodyParser.json());
 // Setting application port number
 app.set("port", config.server.port);
 
+// Set as public root directory for static content
+app.use("/public", express.static(__dirname + '/public'))
+
 // Require HTTP route endpoints
 var routes = require('./routes')(app);
 

@@ -1,13 +1,14 @@
 var controller = require('../controllers'),
     users      = controller.users,
     auth       = controller.auth,
-    lists      = controller.lists
+    lists      = controller.lists,
+    fs         = require('fs')
 
 module.exports = function(app){
 
     // GET /
     app.get('/',function(req, res, next) {
-        res.json({"welcome" : "Welcome to List"})
+        res.sendFile('index.html', {root: "public"});
     });
 
     // Users
