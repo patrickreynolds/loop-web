@@ -1,11 +1,11 @@
 require.config({
-  baseUrl: './scripts',
+  baseUrl: './scripts/lib',
 
   paths: {
-    lodash: '',
-    jquery: 'lib/jquery',
-    react: '',
-    JSXTransformer: '',
-    socketio: ''
+    lodash: 'lodash.min',
+    jquery: 'jquery',
+    react: 'react.min',
+    JSXTransformer: 'JSXTransformer',
+    socketio: 'socket.io.min'
   }
 });
