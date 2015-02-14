@@ -18,8 +18,8 @@ module.exports = function(app){
     // POST /users
     app.post('/users', users.create);
 
-    // GET /users/:id
-    app.get('/users/:id', users.show);
+    // GET /:username
+    app.get('/:username', users.show);
 
     // UPDATE /users/:id
     app.put('/users/:id', users.update);

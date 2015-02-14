@@ -3,10 +3,10 @@ var User = require('../../models/user')
 
 // Exporting via the module pattern.
 module.exports = function(req, res, next) {
-    var id = req.params.id
+    var username = req.params.username
 
     // Query MongoDB tasks by id
-    User.findById(id, function(err, user) {
+    User.findOne({username: username}, function(err, user) {
         if (err) {
             res.json({
               status: 400,
@@ -16,8 +16,10 @@ module.exports = function(req, res, next) {
             if (user) {
                 console.log("\nRetrieving User: " + user.username + "\n")
                 res.json({
-                    status: 200,
-                    user:   user
+                    status:   200,
+                    userId:   user.get('_id'),
+                    userName: user.get('username'),
+                    lists:    user.get('lists')
                 })
             } else {
                 res.json({
