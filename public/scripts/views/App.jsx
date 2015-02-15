@@ -2,7 +2,7 @@
 
 define([
   'react',
-  'jsx!views/profile/profilePage'
+  'jsx!views/pages/profile/profilePage'
 
 ], function(React, ProfileView) {
 

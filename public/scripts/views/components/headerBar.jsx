@@ -1,30 +1,47 @@
 define([
   'react',
-  'jsx!views/components/logo'
+  'font!google,families:[Tangerine,Cantarell,Yanone Kaffeesatz:700]'
 
-], function(React, Logo) {
+], function(React) {
 
   var headerBar = React.createClass({
     render: function() {
-      var headerBarStyle = {
+      var headerBarStyle,
+          headerBarContainerStyle,
+          logoStyle;
+
+      headerBarStyle = {
         display: 'flex',
-        justifyContent: 'left',
+        justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
         height: '100px',
         backgroundColor: 'lightgray'
       };
 
-      var logoStyle = {
+      headerBarContainerStyle = {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '95%'
+      };
+
+      logoStyle = {
         color: 'green',
-        marginLeft: '20px',
-        fontSize: '30px'
+        fontSize: '50px',
+        fontFamily: 'Cantarell'
       };
 
       return (
         <div style={headerBarStyle}>
-          <div className="logo" style={logoStyle}>
-            Loop
+          <div style={headerBarContainerStyle}>
+            <div className="logo" style={logoStyle}>
+              Loop
+            </div>
+            <div>
+              <button>Sign In</button>
+              <button>Sign Up</button>
+            </div>
           </div>
         </div>
       );

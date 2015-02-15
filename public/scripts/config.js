@@ -9,7 +9,9 @@ require.config({
     socketio: 'lib/socket.io.min',
     text: 'lib/text',
     main: 'main',
-    jsx: 'lib/jsx'
+    jsx: 'lib/jsx',
+    propertyParser: 'lib/requirejs-plugins/src/propertyParser',
+    font: 'lib/requirejs-plugins/src/font'
   },
 
   jsx: {
