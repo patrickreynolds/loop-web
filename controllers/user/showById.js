@@ -11,19 +11,18 @@ module.exports = function(req, res, next) {
         if (err) {
             res.json({
               status: 400,
-              error:  'No user found with username: ' + username
+              error:  'No user found with id: ' + userId
             })
         } else {
             if (user) {
-                console.log('\nRetrieving User: ' + user.username + '\n')
-                List.find({user: user.get('_id')}, function(err, lists) {
+                console.log('\nRetrieving User: ' + user.get('username') + '\n')
+                List.find({user: userId}, function(err, lists) {
                     if (err) {
                         res.json({
                             status: 400,
-                            error: 'Error fetching lists: ' + err
+                            error:  'Error fetching lists: ' + err
                         })
                     }
-                    console.log('Found Lists: ' + lists);
                     res.json({
                         status:   200,
                         userId:   user.get('_id'),
@@ -34,7 +33,7 @@ module.exports = function(req, res, next) {
             } else {
                 res.json({
                     status: 400,
-                    error:  'No user found with username: ' + username 
+                    error:  'No user found with id: ' + userId 
                 })
             }
         }

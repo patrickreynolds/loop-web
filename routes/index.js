@@ -1,8 +1,8 @@
 var controller = require('../controllers'),
-    users      = controller.users,
     auth       = controller.auth,
+    users      = controller.users,
     lists      = controller.lists,
-    fs         = require('fs')
+    items      = controller.items
 
 module.exports = function(app){
 
@@ -47,6 +47,25 @@ module.exports = function(app){
 
     // // GET /users/:userId/lists/:listId
     app.delete('/users/:userId/lists/:listId', lists.destroy);
+
+
+
+    // Items
+    // GET /users/:userId/lists/:listId/items
+    app.get('/users/:userId/lists/:listId/items', items.all);
+
+    // // POST /users/:userId/lists/:listId/items
+    app.post('/users/:userId/lists/:listId/items', items.create);
+
+    // // GET /users/:userId/lists/:listId/items/:itemId
+    app.get('/users/:userId/lists/:listId/items/:itemId', items.show);
+
+    // // GET /users/:userId/lists/:listId/items/item:id
+    app.put('/users/:userId/lists/:listId/items/:itemId', items.update);
+
+    // // GET /users/:userId/lists/:listId/items/:itemId
+    app.delete('/users/:userId/lists/:listId/items/:itemId', items.destroy);
+
 
 
     // Auth

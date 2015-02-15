@@ -10,6 +10,7 @@ module.exports = function(req, res, next) {
         description:    req.body.description,
         createdAt:      Date.now(),
         updatedAt:      Date.now(),
+        items:          [],
         user:           userId
     }
     

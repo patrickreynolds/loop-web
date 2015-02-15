@@ -9,7 +9,7 @@ module.exports = function(req, res, next) {
         if (err) {
             res.json({
                 status: 400,
-                error: err
+                error:  err
             })
         }
 
@@ -24,7 +24,7 @@ module.exports = function(req, res, next) {
             if (err) {
                 res.json({
                     status: 400,
-                    error: err
+                    error:  err
                 })
             } else {
                 res.json({
