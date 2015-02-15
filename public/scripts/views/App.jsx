@@ -1,16 +1,22 @@
 define([
-  'react'
+  'react',
+  'jsx!../views/profile/profilePage'
 
-], function(React) {
+], function(React, ProfileView) {
 
-  var App = React.createClass({
+  var app = React.createClass({
+    getInitialState: function() {
+      return {
+        profileActive: false
+      };
+    },
 
     render: function() {
       return (
-        <div>hello</div>
+        <ProfileView />
       );
     }
   });
 
-  return App;
+  return app;
 });
