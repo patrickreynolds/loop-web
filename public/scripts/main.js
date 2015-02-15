@@ -1,25 +1,11 @@
-define(["jquery"], function($) {
+define([
+    'jquery',
+    'react',
+    'jsx!views/app'
 
-    $(function() {
-        $("#signup").on('submit', function(ev) {
-            ev.preventDefault();
+], function($, React, App) {
+    App = React.createFactory(App);
 
-            var data = {};
-            $(ev.target).serializeArray().map(function(pair){data[pair.name] = pair.value;});
-            data = JSON.stringify(data);
-
-            $.ajax({
-                type: "POST",
-                url: "/signup",
-                contentType:"application/json; charset=utf-8",
-                dataType: "json",
-                data: data
-            })
-            .done(function(response) {
-                $('#signup').get(0).reset();
-                $('#signup').hide();
-                $("#currentUser").html("Hi, " + response.username);
-            })
-        })
-    })
+    // this is responsible for loading the entire front end app
+    React.render(new App(), $('body')[0]);
 });
