@@ -1,12 +1,15 @@
 define([
-  'react'
+  'react',
+  'jsx!views/components/headerBar'
 
-], function(React) {
+], function(React, HeaderBar) {
+
   var profilePage = React.createClass({
-
     render: function() {
       return (
-        <div>hello</div>
+          <div>
+            <HeaderBar />
+          </div>
       );
     }
   });

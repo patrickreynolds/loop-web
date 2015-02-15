@@ -1,14 +1,15 @@
 require.config({
-  baseUrl: 'public/scripts/lib',
+  baseUrl: 'public/scripts/',
 
   paths: {
-    lodash: 'lodash.min',
-    jquery: 'jquery',
-    react: 'react-with-addons.min',
-    JSXTransformer: 'JSXTransformer',
-    socketio: 'socket.io.min',
-    text: 'text',
-    main: '../main'
+    lodash: 'lib/lodash.min',
+    jquery: 'lib/jquery',
+    react: 'lib/react',
+    JSXTransformer: 'lib/JSXTransformer',
+    socketio: 'lib/socket.io.min',
+    text: 'lib/text',
+    main: 'main',
+    jsx: 'lib/jsx'
   },
 
   jsx: {
