@@ -1,22 +1,24 @@
-// Using Mongoose Task model schema
-var List = require('../../models/list')
+// Using Mongoose Item model schema
+var Item = require('../../models/item')
 
 // Exporting via the module pattern.
 module.exports = function (req, res, next) {
     var userId = req.params.userId
+    var listId = req.params.listId
 
-    List.find({user: userId}, function(err, lists) {
+    Item.find({list: listId}, function(err, items) {
         if (err) {
             res.json({
                 status: 400,
                 error: err
             })
         } else {
-            console.log("Show all of " + userId + "'s lists")
+            console.log("Show all of " + listId + "'s items for user " + userId)
             res.json({
                 status: 200,
                 userId: userId,
-                lists: lists
+                listId: listId,
+                items: items
             })
         }
     })

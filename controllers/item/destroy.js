@@ -1,12 +1,12 @@
-// Using Mongoose User model schema
-var List = require('../../models/list');
+// Using Mongoose Item model schema
+var Item = require('../../models/item');
 
 // Exporting via the module pattern.
 module.exports = function(req, res, next) {
-    var listId = req.params.listId
+    var itemId = req.params.itemId
     
     List.remove({
-        _id: listId
+        _id: itemId
     }, function(err) {
         if (err) {
             res.json({
@@ -14,7 +14,7 @@ module.exports = function(req, res, next) {
                 error:  err
             })
         } else {
-            console.log('\nDestroying list with id: ' + listId + '\n')
+            console.log('\nDestroying item with id: ' + itemId + '\n')
             res.json({
                 status: 200
             })

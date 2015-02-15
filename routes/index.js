@@ -1,8 +1,8 @@
 var controller = require('../controllers'),
-    users      = controller.users,
     auth       = controller.auth,
+    users      = controller.users,
     lists      = controller.lists,
-    fs         = require('fs')
+    items      = controller.items
 
 module.exports = function(app){
 
@@ -19,13 +19,17 @@ module.exports = function(app){
     app.post('/users', users.create);
 
     // GET /:username
-    app.get('/:username', users.show);
+    app.get('/:username', users.showByUsername);
+
+    // GET /:username
+    app.get('/users/:userId', users.showById);    
 
     // UPDATE /users/:id
-    app.put('/users/:id', users.update);
+    app.put('/users/:userId', users.update);
 
     // DELETE /users/:id
-    app.delete('/users/:id', users.destroy);
+    app.delete('/users/:userId', users.destroy);
+    
 
 
     // Lists
@@ -43,6 +47,25 @@ module.exports = function(app){
 
     // // GET /users/:userId/lists/:listId
     app.delete('/users/:userId/lists/:listId', lists.destroy);
+
+
+
+    // Items
+    // GET /users/:userId/lists/:listId/items
+    app.get('/users/:userId/lists/:listId/items', items.all);
+
+    // // POST /users/:userId/lists/:listId/items
+    app.post('/users/:userId/lists/:listId/items', items.create);
+
+    // // GET /users/:userId/lists/:listId/items/:itemId
+    app.get('/users/:userId/lists/:listId/items/:itemId', items.show);
+
+    // // GET /users/:userId/lists/:listId/items/item:id
+    app.put('/users/:userId/lists/:listId/items/:itemId', items.update);
+
+    // // GET /users/:userId/lists/:listId/items/:itemId
+    app.delete('/users/:userId/lists/:listId/items/:itemId', items.destroy);
+
 
 
     // Auth

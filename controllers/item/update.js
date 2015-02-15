@@ -1,33 +1,32 @@
-// Using Mongoose User model schema
-var List = require('../../models/list')
+// Using Mongoose Item model schema
+var Item = require('../../models/item')
 
 // Exporting via the module pattern.
 module.exports = function(req, res, next) {
-    var userId = req.params.userId
     var listId = req.params.listId
+    var itemId = req.params.itemId
 
-    List.findById(listId, function(err, list) {
-        console.log("HERE 1")
+    Item.findById(itemId, function(err, item) {
         if (err) {
             res.json({
                 status: 400,
                 error:  err
             })
         }
-        list.title       = req.body.title       || list.get('title')
-        list.description = req.body.description || list.get('description')
-        list.updatedAt   = Date.now()
+        item.title     = req.body.title   || item.get('title')
+        item.details   = req.body.details || item.get('details')
+        item.updatedAt = Date.now()
 
-        list.save(function(err){
+        item.save(function(err){
             if (err) {
                 res.json({
                     status: 400,
-                    error: err
+                    error:  err
                 })
             } else {
                 res.json({
                     status: 200,
-                    list:   list
+                    item:   item
                 })
             }
         })

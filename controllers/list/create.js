@@ -1,37 +1,30 @@
 // Using Mongoose User model schema
-var User = require('../../models/user')
+var List = require('../../models/list')
 
 // Exporting via the module pattern.
 module.exports = function(req, res, next) {
-    var list = {
-        title: req.body.list.title,
-        description: req.body.list.description
+    var userId = req.params.userId
+
+    var newList = {
+        title:          req.body.title,
+        description:    req.body.description,
+        createdAt:      Date.now(),
+        updatedAt:      Date.now(),
+        items:          [],
+        user:           userId
     }
     
-    User.findById(req.params.userId, function(err, user) {
+    List.create(newList, function(err, list) {
         if (err) { 
             res.json({
                 status: 400,
                 error: err
             })
         } else {
-            if (!user.get('lists')) {
-                user.lists = []
-            }
-            user.lists = user.get('lists').push(list)
-            User.findByIdAndUpdate(req.params.userId, {"lists": user.lists}, function(err) {
-                if (err) { 
-                    res.json({
-                        status: 400,
-                        error: err
-                    })
-                } else {
-                    res.json({
-                        status: 200,
-                        userId: user.get('_id'),
-                        lists: user.get('lists')
-                    })
-                }
+            console.log('Created List: ' + list.get('title'));
+            res.json({
+                status: 200,
+                list:   list
             })
         }
     })
