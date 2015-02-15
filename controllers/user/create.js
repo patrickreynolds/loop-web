@@ -5,10 +5,11 @@ var User = require('../../models/user')
 module.exports = function(req, res, next) {
     var newUser = {
         username:  req.body.username,
+        email:     req.body.email,
         password:  req.body.password,
+        lists:     [],
         updatedAt: Date.now(),
-        createdAt: Date.now(),
-        lists:     []
+        createdAt: Date.now()
     }
 
     // Inserting a new user into MongoDB via Mongoose create method.
@@ -19,7 +20,7 @@ module.exports = function(req, res, next) {
                 error:  err
             })
         } else {
-            console.log("Created User: " + user);
+            console.log('Created User: ' + user);
             res.json({
                 status: 200,
                 user:   user

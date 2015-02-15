@@ -10,7 +10,7 @@ module.exports = function (req, res, next) {
             error: err
         })
     } else {
-        console.log("Show all users")
+        console.log('Show all users')
         res.json({
             status: 200,
             users: users

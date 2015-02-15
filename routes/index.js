@@ -19,13 +19,17 @@ module.exports = function(app){
     app.post('/users', users.create);
 
     // GET /:username
-    app.get('/:username', users.show);
+    app.get('/:username', users.showByUsername);
+
+    // GET /:username
+    app.get('/users/:userId', users.showById);    
 
     // UPDATE /users/:id
-    app.put('/users/:id', users.update);
+    app.put('/users/:userId', users.update);
 
     // DELETE /users/:id
-    app.delete('/users/:id', users.destroy);
+    app.delete('/users/:userId', users.destroy);
+    
 
 
     // Lists

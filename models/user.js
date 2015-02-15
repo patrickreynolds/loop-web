@@ -15,38 +15,36 @@ function generateToken() {
   }, require('../config/secret')())
 }
 
-var userSchema = new Schema({
+var User = new Schema({
   username: {
-    type: String,
-    unique: true,
+    type:     String,
+    unique:   true,
     required: true
   },
   email: {
-    type: String,
-    unique: true,
+    type:     String,
+    unique:   true,
     required: true
   },
   password: {
-    type: String,
+    type:     String,
     required: true
   },
   sessionToken: {
-    type: String,
-    unique: true
+    type:     String,
+    unique:   true
   },
-  lists: [{
-    title: String,
-    description: String,
-  }],
   updatedAt: {
-    type: Number
+    type:     Date,
+    required: true
   },
   createdAt: {
-    type: Number
+    type:     Date,
+    required: true
   }
 });
 
-userSchema.pre('save', function(next) {
+User.pre('save', function(next) {
   if (!this.isModified('password')) {
     return next();
   }
@@ -65,7 +63,7 @@ userSchema.pre('save', function(next) {
   });
 });
 
-userSchema.methods.comparePassword = function(candidatePassword, callback) {
+User.methods.comparePassword = function(candidatePassword, callback) {
   return bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
     if (err) {
       return callback(err, null);
@@ -75,12 +73,12 @@ userSchema.methods.comparePassword = function(candidatePassword, callback) {
   });
 };
 
-userSchema.statics.doesEmailExist = function(email, callback) {
+User.statics.doesEmailExist = function(email, callback) {
   return this.count({ email: email }, callback);
 };
 
-userSchema.statics.randomToken = function() {
+User.statics.randomToken = function() {
   return generateToken()
 };
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', User);

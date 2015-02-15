@@ -1,39 +1,35 @@
 // Using Mongoose User model schema
-var User = require('../../models/user')
+var List = require('../../models/list')
 
 // Exporting via the module pattern.
 module.exports = function(req, res, next) {
+    var userId = req.params.userId
+    var listId = req.params.listId
 
-    User.findById(req.params.userId, function(err, user) {
+    List.findById(listId, function(err, list) {
+        console.log("HERE 1")
         if (err) {
             res.json({
                 status: 400,
-                error: err
-            })
-        } else {
-            user.lists = user.get('lists').map(function(list) {
-                if (list._id.toHexString() === req.params.listId) {
-                    console.log("FOUND IT!")
-                    list.title       = req.body.list.title
-                    list.description = req.body.list.description
-                    return list
-                } else
-                    return list
-            })
-            User.findByIdAndUpdate(req.params.userId, {"lists": user.lists}, function(err) {
-                if (err) { 
-                    res.json({
-                        status: 400,
-                        error: err
-                    })
-                } else {
-                    res.json({
-                        status: 200,
-                        userId: user.get('_id'),
-                        lists: user.get('lists')
-                    })
-                }
+                error:  err
             })
         }
+        list.title       = req.body.title       || list.get('title')
+        list.description = req.body.description || list.get('description')
+        list.updatedAt   = Date.now()
+
+        list.save(function(err){
+            if (err) {
+                res.json({
+                    status: 400,
+                    error: err
+                })
+            } else {
+                res.json({
+                    status: 200,
+                    list:   list
+                })
+            }
+        })
     })
 }

@@ -1,34 +1,29 @@
-// Using Mongoose User model schema
-var User = require('../../models/user')
+// Using Mongoose List model schema
+var List = require('../../models/list')
 
 // Exporting via the module pattern.
 module.exports = function(req, res, next) {
+    var userId = req.params.userId
+    var listId = req.params.listId
 
-    User.findById(req.params.userId, function(err, user) {
+    List.findById(listId, function(err, list) {
         if (err) {
             res.json({
               status: 400,
-              error: "No user found with id: " + id 
+              error: "No list found with id: " + id 
             })
-        } else {
-            var foundList;
-            user.get('lists').forEach(function(list) {
-                if (list._id.toHexString() === req.params.listId) {
-                    foundlist = list;
-                }
-            })
-            if (foundlist) {
-                res.json({
-                    status: 200,
-                    userId: user.get('_id'),
-                    list: foundlist
-                })
-            } else {
-                res.json({
-                    status: 400,
-                    error: "No list found with id: " + req.params.listId
-                })
-            }
         }
+
+        if (!list) {
+            res.json({
+              status: 400,
+              error: "No list found with id: " + id 
+            })
+        }
+
+        res.json({
+            status: 200,
+            list: list
+        })
     })
 }

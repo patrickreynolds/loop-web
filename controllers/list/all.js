@@ -1,21 +1,23 @@
 // Using Mongoose Task model schema
-var User = require('../../models/user')
+var List = require('../../models/list')
 
 // Exporting via the module pattern.
 module.exports = function (req, res, next) {
-  User.findById(req.params.userId, function(err, user) {
-    if (err) {
-        res.json({
-            status: 400,
-            error: err
-        })
-    } else {
-        console.log("Show all of " + user.get('username') + "'s lists")
-        res.json({
-            status: 200,
-            userId: user.get('_id'),
-            lists: user.get('lists')
-        })
-    }
-  })
+    var userId = req.params.userId
+
+    List.find({user: userId}, function(err, lists) {
+        if (err) {
+            res.json({
+                status: 400,
+                error: err
+            })
+        } else {
+            console.log("Show all of " + userId + "'s lists")
+            res.json({
+                status: 200,
+                userId: userId,
+                lists: lists
+            })
+        }
+    })
 }
