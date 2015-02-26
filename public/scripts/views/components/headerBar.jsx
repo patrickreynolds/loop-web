@@ -6,36 +6,10 @@ define([
 
   var headerBar = React.createClass({
     render: function() {
-      var headerBarStyle,
-          headerBarContainerStyle,
-          logoStyle;
-
-      headerBarStyle = {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-        height: '100px',
-        backgroundColor: 'lightgray'
-      };
-
-      headerBarContainerStyle = {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: '95%'
-      };
-
-      logoStyle = {
-        color: 'green',
-        fontSize: '50px',
-        fontFamily: 'Cantarell'
-      };
-
       return (
-        <div style={headerBarStyle}>
-          <div style={headerBarContainerStyle}>
-            <div className="logo" style={logoStyle}>
+        <div style={this.getHeaderBarStyle()}>
+          <div style={this.getHeaderBarContainerStyle()}>
+            <div className="logo" style={this.getLogoStyle()}>
               Loop
             </div>
             <div>
@@ -45,6 +19,35 @@ define([
           </div>
         </div>
       );
+    },
+
+    // methods for styles go below this
+    getHeaderBarStyle: function() {
+      return {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        height: '100px',
+        backgroundColor: 'lightgray'
+      };
+    },
+
+    getHeaderBarContainerStyle: function() {
+      return {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '95%'
+      };
+    },
+
+    getLogoStyle: function() {
+      return {
+        color: 'green',
+        fontSize: '50px',
+        fontFamily: 'Cantarell'
+      };
     }
   });
 
