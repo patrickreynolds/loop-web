@@ -1,12 +1,9 @@
 // this is the main app that lives in the root of the views folder
+var React = require('react'),
+    ProfileView = require('./pages/profile/ProfileView'),
+    app;
 
-define([
-  'react',
-  'jsx!views/pages/profile/profilePage'
-
-], function(React, ProfileView) {
-
-  var app = React.createClass({
+app = React.createClass({
     getInitialState: function() {
       return {
         profileActive: false
@@ -20,5 +17,4 @@ define([
     }
   });
 
-  return app;
-});
+module.exports = app;

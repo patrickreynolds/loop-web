@@ -1,11 +1,9 @@
-define([
-    'jquery',
-    'react',
-    'jsx!views/app'
+var React  = require('react'),
+		$      = require('jquery')
+		main   = require('./views/App');
+		App    = React.createFactory(main);
 
-], function($, React, App) {
-    App = React.createFactory(App);
+App = React.createFactory(main);
+React.render(new App(), $('body')[0]);
 
-    // this is responsible for loading the entire front end app
-    React.render(new App(), $('body')[0]);
-});
+module.exports = {};

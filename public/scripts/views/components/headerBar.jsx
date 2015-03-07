@@ -1,7 +1,5 @@
 define([
-  'react',
-  'font!google,families:[Tangerine,Cantarell,Yanone Kaffeesatz:700]'
-
+  'react'
 ], function(React) {
 
   var headerBar = React.createClass({
