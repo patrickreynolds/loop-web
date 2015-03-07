@@ -15979,59 +15979,58 @@
 /* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-	  __webpack_require__(2)
-	], __WEBPACK_AMD_DEFINE_RESULT__ = function(React) {
+	var React = __webpack_require__(2),
+	    HeaderBar;
 
-	  var headerBar = React.createClass({displayName: "headerBar",
-	    render: function() {
-	      return (
-	        React.createElement("div", {style: this.getHeaderBarStyle()}, 
-	          React.createElement("div", {style: this.getHeaderBarContainerStyle()}, 
-	            React.createElement("div", {className: "logo", style: this.getLogoStyle()}, 
-	              "Loop"
-	            ), 
-	            React.createElement("div", null, 
-	              React.createElement("button", null, "Sign In"), 
-	              React.createElement("button", null, "Sign Up")
-	            )
+	HeaderBar = React.createClass({displayName: "HeaderBar",
+	  render: function() {
+	    return (
+	      React.createElement("div", {style: this.getHeaderBarStyle()}, 
+	        React.createElement("div", {style: this.getHeaderBarContainerStyle()}, 
+	          React.createElement("div", {className: "logo", style: this.getLogoStyle()}, 
+	            "Loop"
+	          ), 
+	          React.createElement("div", null, 
+	            React.createElement("button", null, "Sign In"), 
+	            React.createElement("button", null, "Sign Up")
 	          )
 	        )
-	      );
-	    },
+	      )
+	    );
+	  },
 
-	    // methods for styles go below this
-	    getHeaderBarStyle: function() {
-	      return {
-	        display: 'flex',
-	        justifyContent: 'center',
-	        alignItems: 'center',
-	        width: '100%',
-	        height: '100px',
-	        backgroundColor: 'lightgray'
-	      };
-	    },
+	  // methods for styles go below this
+	  getHeaderBarStyle: function() {
+	    return {
+	      display: 'flex',
+	      justifyContent: 'center',
+	      alignItems: 'center',
+	      width: '100%',
+	      height: '100px',
+	      backgroundColor: 'lightgray'
+	    };
+	  },
 
-	    getHeaderBarContainerStyle: function() {
-	      return {
-	        display: 'flex',
-	        justifyContent: 'space-between',
-	        alignItems: 'center',
-	        width: '95%'
-	      };
-	    },
+	  getHeaderBarContainerStyle: function() {
+	    return {
+	      display: 'flex',
+	      justifyContent: 'space-between',
+	      alignItems: 'center',
+	      width: '95%'
+	    };
+	  },
 
-	    getLogoStyle: function() {
-	      return {
-	        color: 'green',
-	        fontSize: '50px',
-	        fontFamily: 'Cantarell'
-	      };
-	    }
-	  });
+	  getLogoStyle: function() {
+	    return {
+	      color: 'green',
+	      fontSize: '50px',
+	      fontFamily: 'Cantarell'
+	    };
+	  }
+	});
 
-	  return headerBar;
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	module.exports = HeaderBar;
+
 
 /***/ },
 /* 31 */
