@@ -55,8 +55,8 @@
 			Dispatcher = __webpack_require__(156),
 
 	// require main app here
-			main   	 = __webpack_require__(5),
-			App      = React.createFactory(main);
+			mainView   	 = __webpack_require__(160),
+			App      = React.createFactory(mainView);
 
 	React.render(new App(), $('body')[0]);
 	module.exports = App;
@@ -9310,31 +9310,7 @@
 
 
 /***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// this is the main app that lives in the root of the views folder
-	var React = __webpack_require__(3),
-	    ProfileView = __webpack_require__(9),
-	    app;
-
-	app = React.createClass({displayName: "app",
-	  getInitialState: function() {
-	    return {
-	      profileActive: false
-	    };
-	  },
-
-	  render: function() {
-	    return (
-	      React.createElement(ProfileView, null)
-	    );
-	  }
-	});
-
-	module.exports = app;
-
-/***/ },
+/* 5 */,
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -28777,6 +28753,31 @@
 
 	module.exports = invariant;
 
+
+/***/ },
+/* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// this is the main app that lives in the root of the views folder
+	var React = __webpack_require__(3),
+	    ProfileView = __webpack_require__(9),
+	    app;
+
+	app = React.createClass({displayName: "app",
+	  getInitialState: function() {
+	    return {
+	      profileActive: false
+	    };
+	  },
+
+	  render: function() {
+	    return (
+	      React.createElement(ProfileView, null)
+	    );
+	  }
+	});
+
+	module.exports = app;
 
 /***/ }
 /******/ ]);

@@ -9,8 +9,8 @@ var React    = require('react'),
 		Dispatcher = require('dispatcher/dispatcher'),
 
 // require main app here
-		main   	 = require('views/App'),
-		App      = React.createFactory(main);
+		mainView   	 = require('views/mainView'),
+		App      = React.createFactory(mainView);
 
 React.render(new App(), $('body')[0]);
 module.exports = App;
