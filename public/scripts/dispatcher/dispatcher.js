@@ -1,3 +1,3 @@
-// global dispatcher 
-var dispatcher = require('flux').Dispatcher();
-module.exports = dispatcher;
+// global dispatcher
+var Dispatcher = require('flux').Dispatcher();
+module.exports = Dispatcher;
