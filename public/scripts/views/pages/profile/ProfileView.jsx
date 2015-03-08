@@ -1,5 +1,5 @@
 var React     = require('react'),
-    HeaderBar = require('../../components/headerBar.jsx'),
+    HeaderBar = require('views/components/headerBar.jsx'),
     ProfileView;
 
 ProfileView = React.createClass({

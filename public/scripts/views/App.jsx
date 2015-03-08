@@ -4,17 +4,17 @@ var React = require('react'),
     app;
 
 app = React.createClass({
-    getInitialState: function() {
-      return {
-        profileActive: false
-      };
-    },
+  getInitialState: function() {
+    return {
+      profileActive: false
+    };
+  },
 
-    render: function() {
-      return (
-        <ProfileView />
-      );
-    }
-  });
+  render: function() {
+    return (
+      <ProfileView />
+    );
+  }
+});
 
 module.exports = app;

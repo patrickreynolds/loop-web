@@ -1,6 +1,6 @@
 var React  = require('react'),
 		$      = require('jquery')
-		main   = require('./views/App');
+		main   = require('views/App');
 		App    = React.createFactory(main);
 
 App = React.createFactory(main);

@@ -44,9 +44,9 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React  = __webpack_require__(2),
+	var React  = __webpack_require__(1),
 			$      = __webpack_require__(3)
-			main   = __webpack_require__(1);
+			main   = __webpack_require__(2);
 			App    = React.createFactory(main);
 
 	App = React.createFactory(main);
@@ -58,33 +58,33 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	// this is the main app that lives in the root of the views folder
-	var React = __webpack_require__(2),
-	    ProfileView = __webpack_require__(5),
-	    app;
+	module.exports = __webpack_require__(4);
 
-	app = React.createClass({displayName: "app",
-	    getInitialState: function() {
-	      return {
-	        profileActive: false
-	      };
-	    },
-
-	    render: function() {
-	      return (
-	        React.createElement(ProfileView, null)
-	      );
-	    }
-	  });
-
-	module.exports = app;
 
 /***/ },
 /* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(4);
+	// this is the main app that lives in the root of the views folder
+	var React = __webpack_require__(1),
+	    ProfileView = __webpack_require__(5),
+	    app;
 
+	app = React.createClass({displayName: "app",
+	  getInitialState: function() {
+	    return {
+	      profileActive: false
+	    };
+	  },
+
+	  render: function() {
+	    return (
+	      React.createElement(ProfileView, null)
+	    );
+	  }
+	});
+
+	module.exports = app;
 
 /***/ },
 /* 3 */
@@ -9492,7 +9492,7 @@
 /* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React     = __webpack_require__(2),
+	var React     = __webpack_require__(1),
 	    HeaderBar = __webpack_require__(30),
 	    ProfileView;
 
@@ -15979,7 +15979,7 @@
 /* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(2),
+	var React = __webpack_require__(1),
 	    HeaderBar;
 
 	HeaderBar = React.createClass({displayName: "HeaderBar",
