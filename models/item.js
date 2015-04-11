@@ -22,7 +22,7 @@ var Item = new Schema({
     ref:      'List'
   },
   user: {
-    type:     Schema.ObjectId, 
+    type:     Schema.ObjectId,
     ref:      'User'
   }
 });

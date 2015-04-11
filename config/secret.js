@@ -1,3 +1,3 @@
 module.exports = function() {
-    return 'loop.key'
+  return 'loop.key'
 }

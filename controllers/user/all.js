@@ -5,16 +5,16 @@ var User = require('../../models/user')
 module.exports = function (req, res, next) {
   User.find(function(err, users) {
     if (err) {
-        res.json({
-            status: 400,
-            error: err
-        })
+      res.json({
+        status: 400,
+        error: err
+      })
     } else {
-        console.log('Show all users')
-        res.json({
-            status: 200,
-            users: users
-        })
+      console.log('Show all users')
+      res.json({
+        status: 200,
+        users: users
+      })
     }
   })
 }

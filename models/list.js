@@ -18,7 +18,7 @@ var List = new Schema({
     required: true
   },
   user: {
-    type:     Schema.ObjectId, 
+    type:     Schema.ObjectId,
     ref:      'User'
   }
 });
