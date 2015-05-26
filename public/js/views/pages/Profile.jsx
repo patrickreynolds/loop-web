@@ -1,11 +1,12 @@
-var React     = require('react'),
-    HeaderBar = require('views/components/headerBar.jsx'),
-    ProfileView;
+var React = require('react');
+var ProfileView;
 
 ProfileView = React.createClass({
   render: function() {
     return (
-      <HeaderBar />
+      <div>
+        profile view
+      </div>
     );
   }
 });

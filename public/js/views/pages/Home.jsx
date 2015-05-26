@@ -1,11 +1,12 @@
-var React     = require('react'),
-    HeaderBar = require('views/components/headerBar.jsx'),
-    HomeView;
+var React = require('react');
+var HomeView;
 
 HomeView = React.createClass({
   render: function() {
     return (
-      <HeaderBar />
+      <div>
+        hello
+      </div>
     );
   }
 });
